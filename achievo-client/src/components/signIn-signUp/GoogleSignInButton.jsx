@@ -45,7 +45,8 @@ const GoogleSignInButton = () => {
     } catch (error) {
       console.error("Sign-in error:", error);
       toast.error("Sign-in failed. Please try again.");
-      await logOut;
+      await logOut();
+      navigate('/')
     }
   };
 

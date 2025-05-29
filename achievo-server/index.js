@@ -82,7 +82,8 @@ app.post("/jwt", async (req, res) => {
       secure: process.env.NODE_ENV === "production",
       sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
     })
-    .send({ success: true });
+    .status(200)
+    .json({ success: true, token });
 });
 
 // clear cookie on sign-out
@@ -219,21 +220,48 @@ app.patch("/update-categories/:id", async (req, res) => {
 
 // ** task related apis end **********************************************
 
+// app.post("/users/:email", async (req, res) => {
+//   try {
+//     const email = req.params.email;
+//     const isExist = await User.findOne({ email });
+//     if (isExist)
+//       return res.status(400).send({ message: "user already exists" });
+
+//     const user = new User({
+//       ...req.body,
+//       createdAt: new Date(),
+//     });
+//     const result = await user.save();
+//     res.status(200).send(result);
+//   } catch (faild) {
+//     res.status(500).send({ message: "faild creating user" });
+//   }
+// });
 app.post("/users/:email", async (req, res) => {
   try {
-    const email = req.params.email;
-    const isExist = await User.findOne({ email });
-    if (isExist)
-      return res.status(400).send({ message: "user already exists" });
+    const token = req.cookies.token;
+    if (!token) return res.status(401).send({ message: "Unauthorized" });
+    jwt.verify(token, process.env.SECRET_TOKEN);
 
-    const user = new User({
-      ...req.body,
-      createdAt: new Date(),
-    });
-    const result = await user.save();
-    res.status(200).send(result);
-  } catch (faild) {
-    res.status(500).send({ message: "faild creating user" });
+    const email = req.params.email;
+    const userData = req.body;
+    const user = await User.findOneAndUpdate(
+      { email },
+      {
+        ...userData,
+        updatedAt: new Date(),
+        $setOnInsert: { createdAt: new Date() }, // Only set on creation
+      },
+      {
+        new: true,
+        upsert: true, 
+        runValidators: true, // Validate data
+      }
+    );
+
+    res.status(200).send(user);
+  } catch (error) {
+    console.error(error);
   }
 });
 
