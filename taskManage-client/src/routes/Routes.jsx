@@ -1,49 +1,75 @@
-import { createBrowserRouter } from 'react-router-dom'
-import DashboardLayout from '../layouts/DashboardLayout'
-import AddTaskForm from '../components/AddTaskForm'
-import Home from '../components/Home'
-import PrivateRoute from '../routes/PrivateRoute'
-import UpdateTask from '../components/UpdateTask'
-import Tasks from '../components/Tasks'
-import NotFoundPage from '../components/NotFoundPage'
+import { createBrowserRouter } from "react-router-dom";
+import Dashboard from "../layouts/Dashboard.jsx";
+import AddTaskForm from "../components/AddTaskForm";
+import Home from "../components/Home";
+import PrivateRoute from "../routes/PrivateRoute";
+import UpdateTask from "../components/UpdateTask";
+import NotFoundPage from "../components/NotFoundPage";
+import LoginForm from "../components/signIn-signUp/LoginForm.jsx";
+import DashboardLayout from "../layouts/DashboardLayout.jsx";
+import AddGoalForm from "../components/AddGoalForm.jsx";
+import axios from "axios";
 
 export const router = createBrowserRouter([
   {
-    path: '*',
-    element: <NotFoundPage />
+    path: "*",
+    element: <NotFoundPage />,
   },
   {
-    path: '/',
+    path: "/",
     element: <Home />,
   },
   {
-    path: 'dashboard',
-    element: <PrivateRoute>
-      <DashboardLayout />
-    </PrivateRoute>,
+    path: "form",
+    element: <LoginForm />,
+  },
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
     children: [
       {
-        index: true,
-        element: <Tasks />
+        path: "",
+        element: <DashboardLayout />,
       },
       {
-        path: 'create-task',
-        element: <AddTaskForm />
+        path: "create-task",
+        element: (
+          <PrivateRoute>
+            <AddTaskForm />
+          </PrivateRoute>
+        ),
       },
       {
-        path: 'update/:id',
-        element: <UpdateTask />,
+        path: "create-goal",
+        element: (
+          <PrivateRoute>
+            <AddGoalForm />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "update/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateTask />
+          </PrivateRoute>
+        ),
         loader: async ({ params }) => {
           try {
-            const response = await fetch(`https://task-oracle-server.vercel.app/task-by-id/${params.id}`)
-            const data = await response.json()
-            return data
+            const response = await axios.get(
+              `${import.meta.env.VITE_LOCAL_HOST}/task-by-id/${params.id}`
+            );
+            return response.data;
           } catch (error) {
-            console.log(error)
-            return {}
+            console.error("Loader error:", error);
+            return null;
           }
-        }
+        },
       },
     ],
   },
-])
+]);

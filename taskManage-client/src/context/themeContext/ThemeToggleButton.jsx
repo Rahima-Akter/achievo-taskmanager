@@ -8,7 +8,7 @@ const ThemeToggleButton = () => {
     return (
         <button
             onClick={toggleTheme}
-            className="p-2 bg-red-500 text-white rounded-full shadow-lg hover:bg-Red/90 transition duration-300 bottom-5 right-5 fixed"
+            className="p-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-full shadow-lg hover:bg-Red/90 transition duration-300 bottom-5 right-5 fixed"
         >
             {theme === 'light' ? (
                 <RxMoon />

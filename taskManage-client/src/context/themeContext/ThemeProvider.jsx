@@ -1,17 +1,15 @@
 /* eslint-disable react/prop-types */
 import { createContext, useContext, useState, useEffect } from 'react';
 
-// ThemeContext to hold theme state
+// ThemeContext
 const ThemeContext = createContext();
 
-// Custom hook to use the theme context
+// Custom hook
 export const useTheme = () => {
     return useContext(ThemeContext);
 };
 
-// ThemeProvider component to wrap your app
 export const ThemeProvider = ({ children }) => {
-    // State to manage the theme (light or dark)
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
     useEffect(() => {

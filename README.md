@@ -1,66 +1,65 @@
-# 🌿 **TaskOracle** - Task Management System
+# 🌿 **Achievo** – Task Management System
 
-Welcome to **TaskOracle**, a full-stack task management system with both **frontend** and **backend** built using modern technologies like **React**, **Node.js**, **MongoDB**, **Firebase**, **Tailwind CSS**, and **Vite**. This project allows users to manage tasks efficiently in a fast and secure environment.
-
----
-
-## 📋 **Features**
-
-- ✅ **Task management**: Create, read, update, and delete tasks from both the frontend and backend.
-- ⚡ **React frontend** for a fast, dynamic user interface.
-- 🎨 **Tailwind CSS** for utility-first styling on the frontend.
-- 🔐 **Firebase authentication** for secure user login on the frontend.
-- 🗄️ **MongoDB** for storing tasks and user data in the backend.
-- 🔄 **React Query** for data fetching and state management on the frontend.
-- ⚙️ **Express API** for handling task data and user management in the backend.
-- 🛠️ **CORS** for secure communication between frontend and backend.
-- 📝 **Logging** via **Morgan** for request logging in the backend.
+Welcome to **Achievo**, a full-stack task management system with both **frontend** and **backend** built using modern technologies like **React**, **Node.js**, **MongoDB**, **Firebase**, **Tailwind CSS**, and **Vite**. This project allows users to manage tasks efficiently in a fast and secure environment.
 
 ---
 
-## 🛠️ **Technologies Used**
+## 📋 Features
 
-### **Frontend**:
-
-- **React**: A JavaScript library for building user interfaces.
-- **Vite**: Next-generation, fast build tool and development server.
-- **Tailwind CSS**: Utility-first CSS framework for fast styling.
-- **React Router**: For navigation and routing in the app.
-- **Firebase**: Used for user authentication.
-- **React Query**: Data fetching and synchronization library.
-- **Axios**: For making HTTP requests to the backend API.
-- **SweetAlert2**: For beautiful alerts and notifications.
-- **@hello-pangea/dnd**: For drag-and-drop functionality in the UI.
-
-### **Backend**:
-
-- **Node.js**: JavaScript runtime used to build the server.
-- **Express.js**: Web framework to handle routing and server logic.
-- **MongoDB**: NoSQL database to store tasks and data.
-- **CORS**: Handling cross-origin requests securely.
-- **dotenv**: Environment configuration for sensitive information.
-- **Morgan**: HTTP request logger middleware.
+- ✅ **Task management** – Create, read, update, and delete tasks from both the frontend and backend
+- ⚡ **React frontend** – Fast, dynamic user interface
+- 🎨 **Tailwind CSS** – Utility-first styling on the frontend
+- 🔐 **Firebase authentication** – Secure Google sign-in
+- 🗄️ **MongoDB** – Stores tasks and user data in the backend
+- 🔄 **React Query** – Handles data fetching and state management
+- ⚙️ **Express API** – Manages routes and logic on the server
+- 🛠️ **CORS** – Secure communication between frontend and backend
+- 📝 **Morgan** – Logs HTTP requests in the backend
 
 ---
 
-## 📥 **Installation Instructions**
+## 🛠️ Technologies Used
 
-### 🖥️ **Prerequisites**
+### Frontend:
 
-- **Node.js**: Ensure you have Node.js installed. You can download it from [here](https://nodejs.org/).
-- **MongoDB**: Ensure you have a MongoDB instance running locally or remotely.
-- **Firebase**: Set up a Firebase project and get your API keys for authentication.
+- **React**
+- **Vite**
+- **Tailwind CSS**
+- **React Router**
+- **Firebase**
+- **React Query**
+- **Axios**
+- **SweetAlert2**
+- **@hello-pangea/dnd**
+
+### Backend:
+
+- **Node.js**
+- **Express.js**
+- **MongoDB**
+- **CORS**
+- **dotenv**
+- **Morgan**
 
 ---
 
-### ⚙️ **Steps to Get Started**
+## 📥 Installation Instructions
 
-1. **Clone the repositories**:
+### 🖥️ Prerequisites
 
-- Clone the repository for both frontend and backend :
+- ✅ [Node.js](https://nodejs.org/)
+- ✅ MongoDB instance (local or cloud)
+- ✅ Firebase project with API keys
+
+---
+
+### ⚙️ Steps to Get Started
+
+1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/Rahima-Akter/taskOracle.git
+git clone https://github.com/Rahima-Akter/achievo-taskmanager.git
+
 ```
 
 2. **Set up the frontend**:
@@ -68,7 +67,7 @@ git clone https://github.com/Rahima-Akter/taskOracle.git
 - Navigate to the frontend directory and install dependencies:
 
 ```bash
-cd taskoracle-client
+cd achievo-client
 npm install
 ```
 
@@ -88,7 +87,7 @@ VITE_FIREBASE_APP_ID=your-app-id
 - Navigate to the backend directory and install dependencies:
 
 ```bash
-cd taskoracle-server
+cd achievo-server
 npm install
 ```
 
@@ -112,14 +111,14 @@ npm start
 npm run dev
 ```
 
-- The backend should now be running on `https://task-oracle-server.vercel.app` (or the configured port).
+- The backend should now be running on `https://achievo.vercel.app` (or the configured port).
 
 5. **Start the frontend development server**:
 
 - To start the frontend in development mode:
 
 ```bash
-cd taskoracle-client
+cd achievo-client
 npm run dev
 ```
 
@@ -127,14 +126,28 @@ npm run dev
 
 ---
 
-## 🌐 **API Endpoints**
+## 🌐 API Endpoints
 
-You can interact with the backend through the following API endpoints:
+| Method | Endpoint                   | Description                                  |
+|--------|----------------------------|----------------------------------------------|
+| POST   | `/jwt`                     | Generate JWT token                           |
+| GET    | `/sign-out`                | Clear JWT token                              |
+| POST   | `/tasks`                   | Create a new task                            |
+| GET    | `/tasks/:email`            | Get all tasks for a user                     |
+| DELETE | `/delete-single-task/:id`  | Delete a task                                |
+| GET    | `/task-by-id/:id`          | Get task details                             |
+| PATCH  | `/task-by-id/:id`          | Update task info                             |
+| PATCH  | `/in-progress/:id`         | Change task category to "in-progress"        |
+| PATCH  | `/done/:id`                | Change task category to "done"               |
+| PATCH  | `/update-categories/:id`   | Change task category                         |
+| POST   | `/goal/:email`             | Create a goal                                |
+| PATCH  | `/completed/:id`           | Update goal progress                         |
+| GET    | `/get-goal/:email`         | Fetch user goals                             |
+| DELETE | `/delete-goal/:id`         | Delete goal                                  |
+| POST   | `/users/:email`            | Register a new user                          |
+| GET    | `/user/:email`             | Fetch user info                              |
+| GET    | `/quotes`                  | Fetch inspirational quotes                   |
 
-- **GET /tasks** - Fetch all tasks.
-- **POST /tasks** - Create a new task.
-- **PUT /tasks/:id** - Update an existing task by ID.
-- **DELETE /tasks/:id** - Delete a task by ID.
 
 ---
 
@@ -156,4 +169,6 @@ For any questions or suggestions, please contact me directly!
 
 ---
 
-## 🚀 **Happy Task Managing!**
+## Happy Task Managing with Achievo!
+
+🚀 [Live Link](https://achievo-task-manager.netlify.app/)

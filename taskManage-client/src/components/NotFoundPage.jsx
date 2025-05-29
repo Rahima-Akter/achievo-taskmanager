@@ -1,31 +1,65 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const NotFoundPage = () => {
-    const  navigate = useNavigate()
-    return (
-        <section className="bg-white dark:bg-gray-900">
-            <div className="container flex items-center min-h-screen px-6 py-12 mx-auto">
-                <div>
-                    <p className="text-sm font-medium text-blue-500 dark:text-blue-400">404 error</p>
-                    <h1 className="mt-3 text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">We can’t find that page</h1>
-                    <p className="mt-4 text-gray-500 dark:text-gray-400">Sorry, the page you are looking for doesn't exist or has been moved.</p>
+  const navigate = useNavigate();
 
-                    <div className="flex items-center mt-6 gap-x-3">
-                        <button onClick={() => navigate(-1)} className="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-                            </svg>
-                            <span>Go back</span>
-                        </button>
+  return (
+    <section className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 min-h-screen flex items-center">
+      <div className="container mx-auto px-6 py-12 max-w-2xl">
+        <div className="text-center">
+          {/* Error badge */}
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 dark:bg-gray-700 mb-6">
+            <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
+              404 Error
+            </span>
+          </div>
 
-                        <button onClick={() => navigate('/')} className="w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600">
-                            Take me home
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+          {/* Main heading */}
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Page Not Found
+          </h1>
+
+          {/* Description */}
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-md mx-auto">
+            The page you're looking for doesn't exist or has been moved.
+          </p>
+
+          {/* Buttons container */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            {/* Back button */}
+            <button
+              onClick={() => navigate(-1)}
+              className="flex items-center justify-center gap-2 px-6 py-3 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                />
+              </svg>
+              Go Back
+            </button>
+
+            {/* Home button */}
+            <button
+              onClick={() => navigate("/")}
+              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 text-white rounded-lg transition-colors duration-200"
+            >
+              Return Home
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default NotFoundPage;

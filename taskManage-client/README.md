@@ -1,57 +1,56 @@
-# 🌐 **TaskOracle Client** - Frontend for Task Management System
+# 🌐 Achievo Client – Frontend for Task Management System
 
-Welcome to **TaskOracle Client**, the frontend of the **TaskOracle Server**, built with **React** and modern web technologies like **Vite**, **Tailwind CSS**, and **Firebase**. This project provides a sleek, responsive user interface to interact with the Task Management API.
-
----
-
-## 📋 **Features**
-
-- ✅ **Task management**: Create, read, update, and delete tasks from the UI.
-- ⚡ **React** for a fast, dynamic user interface.
-- 🎨 **Tailwind CSS** for utility-first styling.
-- 🔐 **Firebase authentication** for secure user login.
-- 🔄 **React Query** for data fetching and state management.
-- ⚙️ **React Router** for seamless navigation between pages.
-- 🔔 **SweetAlert2** for alerts and notifications.
-- 🌀 **React Spinners** for loading indicators.
-- 📦 **Vite** for fast builds and development server.
+**Achievo Client** is the frontend interface of the **Achievo** system, built using **React**, **Vite**, and **Tailwind CSS**. It offers users a seamless experience for managing tasks and goals, authenticating securely via Firebase, and interacting with the backend API.
 
 ---
 
-## 🛠️ **Technologies Used**
+## 📋 Features
 
-- **React**: A JavaScript library for building user interfaces.
-- **Vite**: Next-generation, fast build tool and development server.
-- **Tailwind CSS**: Utility-first CSS framework for fast styling.
-- **React Router**: For navigation and routing in the app.
-- **Firebase**: Used for user authentication.
-- **React Query**: Data fetching and synchronization library.
-- **Axios**: For making HTTP requests to the backend API.
-- **SweetAlert2**: For beautiful alerts and notifications.
-- **@hello-pangea/dnd**: For drag-and-drop functionality in the UI.
-
----
-
-## 📥 **Installation Instructions**
-
-### 🖥️ **Prerequisites**
-
-- **Node.js**: Ensure you have Node.js installed. You can download it from [here](https://nodejs.org/).
-- **Firebase**: Set up a Firebase project and get your API keys for authentication.
+- ✅ **Task Management** – Create, read, update, and delete tasks
+- 🔐 **Firebase Authentication** – Secure Google sign-in
+- ⚡ **React** – Fast and component-based UI development
+- 🌀 **React Query** – Efficient data fetching and caching
+- 📦 **Axios** – Handles API requests to the backend
+- 🎨 **Tailwind CSS** – Utility-first CSS for responsive design
+- 🔁 **Drag-and-Drop** – Task reordering with `@hello-pangea/dnd`
+- 🔔 **SweetAlert2** – Interactive alerts and confirmations
+- 🚀 **Vite** – Lightning-fast dev server and bundler
 
 ---
 
-### ⚙️ **Steps to Get Started**
+## 🛠️ Technologies Used
 
-1. **Clone the repository**:
-   
-- Open your terminal and run the following command to clone the repository to your local machine:
+- **React**
+- **Vite**
+- **Tailwind CSS**
+- **Firebase**
+- **React Query**
+- **Axios**
+- **SweetAlert2**
+- **React Icons**
+- **React Spinners**
+- **@hello-pangea/dnd**
+- **React Router**
+
+---
+
+## 📥 Installation Instructions
+
+### 🖥️ Prerequisites
+
+- ✅ Node.js installed: [Download here](https://nodejs.org/)
+- ✅ Firebase project configured
+
+---
+
+### ⚙️ Steps to Get Started
+
+1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/Rahima-Akter/taskOracle.git
-```
-```bash
-cd taskoracle-client
+git clone https://github.com/Rahima-Akter/achievo-taskmanager.git
+cd achievo-client
+
 ```
 2. **Install dependencies:**:
 - Install all the required dependencies listed in the package.json file by running:
@@ -83,6 +82,7 @@ npm run dev
 
 - 🔱 Home: Displays the task list and task creation form.
 - 🔱 Login: Allows users to authenticate via Firebase.
+- 🔱 Dashboard – Overview of all user tasks
 - 🔱 Not Found: A 404 page for non-existent routes.
 
 ### 🤝 Contributing
@@ -97,4 +97,6 @@ npm run dev
 ### 📬 Contact
 - For any questions or suggestions, please contact me directly!
 
-### 🚀 Happy Task Managing!
+### 🚀 Happy Task Managing with Achievo!
+
+🚀 [Live Link](https://achievo-task-manager.netlify.app/)
