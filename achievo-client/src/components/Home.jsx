@@ -80,9 +80,9 @@ const Home = () => {
             {user ? "Launch Dashboard" : "Start Achievo"}
             <FaRocket className="animate-pulse" />
           </button>
-          <button className="px-8 py-4 border border-gray-300 dark:border-gray-600 hover:border-blue-400 rounded-xl text-lg font-medium hover:text-blue-500 dark:hover:text-blue-300 transition-all text-gray-700 dark:text-gray-300">
+          <a href="https://drive.google.com/file/d/166SUE_y-Zbx1t_5S1RRDf_4so_q8S4pv/view?usp=sharing" className="px-8 py-4 border border-gray-300 dark:border-gray-600 hover:border-blue-400 rounded-xl text-lg font-medium hover:text-blue-500 dark:hover:text-blue-300 transition-all text-gray-700 dark:text-gray-300">
             See Demo
-          </button>
+          </a>
         </div>
       </section>
 
